@@ -178,7 +178,9 @@ section {
  }
 
 .project-image img{
-    width: 100%
+    width: 300px;
+    height: 200px
+    
 }
 
 .project-info {
@@ -292,4 +294,50 @@ section {
         font-size: 10px;
      
     }
+}
+.experience {
+    background-color: #f0f0f0;
+    padding: 100px 200px;
+}
+
+.experience .title {
+    color: #3a6cf4;
+    font-size: 2.2em;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+.experience .content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.experience-card {
+    background-color: #fff;
+    box-shadow: 0 5px 25px rgba(1 1 1 / 15%);
+    border-radius: 10px;
+    padding: 25px;
+    margin: 15px 0;
+    transition: 0.7s ease;
+    width: 40%;
+}
+
+.experience-card h3 {
+    color: #3a6cf4;
+    font-size: 1.5em;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.experience-card .experience-details {
+    color: #000;
+    font-size: 1em;
+    margin-bottom: 15px;
+}
+
+.experience-card .experience-period {
+    color: #3a6cf4;
+    font-size: 0.9em;
+    font-weight: 600;
 }
