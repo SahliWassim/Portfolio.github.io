@@ -214,7 +214,7 @@ section {
 }
 
 .contact .info h3 {
-    color: #000016;
+    color: #000;
 }
 
 .contact .info p {
@@ -222,7 +222,7 @@ section {
 }
 
 .footer {
-    background-color: #000;
+    background-color: #000016;
     color: #fff;
     padding: 2em;
     display: flex;
