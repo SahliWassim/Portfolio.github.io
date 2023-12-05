@@ -200,6 +200,7 @@ section {
 }
 
 .more-details {
+    background-color: #000016;
     text-decoration: none;
     color: #3a6cf4;
 }
@@ -221,7 +222,7 @@ section {
 }
 
 .footer {
-    background-color: #000016;
+    
     color: #fff;
     padding: 2em;
     display: flex;
