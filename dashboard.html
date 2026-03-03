@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Wassim Sahli</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #0f1117;
+            --surface: #1a1d27;
+            --surface2: #222636;
+            --border: rgba(255, 255, 255, 0.07);
+            --primary: #6c63ff;
+            --primary-soft: rgba(108, 99, 255, 0.15);
+            --accent: #00d4aa;
+            --accent-soft: rgba(0, 212, 170, 0.13);
+            --danger: #ff5c7c;
+            --warning: #ffb347;
+            --text: #e8eaf0;
+            --muted: #7a7f9a;
+            --gradient: linear-gradient(135deg, #6c63ff 0%, #a78bfa 100%);
+            --sidebar-w: 255px;
+            --radius: 14px;
+            --transition: .22s ease;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            overflow-x: hidden;
+        }
+
+        /* ── SIDEBAR ── */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: var(--sidebar-w);
+            height: 100vh;
+            background: var(--surface);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            z-index: 100;
+            transition: transform var(--transition);
+        }
+
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 26px 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: var(--gradient);
+            display: grid;
+            place-items: center;
+            font-size: 17px;
+            color: #fff;
+            flex-shrink: 0;
+        }
+
+        .logo-text {
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: -.3px;
+        }
+
+        .logo-badge {
+            font-size: 10px;
+            background: var(--primary-soft);
+            color: var(--primary);
+            padding: 2px 7px;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-left: auto;
+        }
+
+        .sidebar-nav {
+            flex: 1;
+            padding: 18px 12px;
+            overflow-y: auto;
+        }
+
+        .nav-label {
+            font-size: 10.5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--muted);
+            font-weight: 600;
+            padding: 0 10px;
+            margin: 18px 0 8px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 12px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background var(--transition), color var(--transition);
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            margin-bottom: 2px;
+        }
+
+        .nav-item i {
+            width: 18px;
+            text-align: center;
+            font-size: 15px;
+        }
+
+        .nav-item:hover {
+            background: var(--surface2);
+            color: var(--text);
+        }
+
+        .nav-item.active {
+            background: var(--primary-soft);
+            color: var(--primary);
+        }
+
+        .nav-item .badge {
+            margin-left: auto;
+            background: var(--primary);
+            color: #fff;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 20px;
+        }
+
+        .sidebar-footer {
+            padding: 16px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .avatar-sm {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: grid;
+            place-items: center;
+            font-size: 14px;
+            font-weight: 700;
+            color: #fff;
+            flex-shrink: 0;
+        }
+
+        .user-info .name {
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .user-info .role {
+            font-size: 11px;
+            color: var(--muted);
+            margin-top: 1px;
+        }
+
+        .sidebar-footer .settings-btn {
+            margin-left: auto;
+            color: var(--muted);
+            font-size: 14px;
+            cursor: pointer;
+            transition: color var(--transition);
+        }
+
+        .sidebar-footer .settings-btn:hover {
+            color: var(--primary);
+        }
+
+        /* ── MAIN ── */
+        .main-content {
+            margin-left: var(--sidebar-w);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* ── TOPBAR ── */
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            height: 66px;
+            display: flex;
+            align-items: center;
+            padding: 0 28px;
+            gap: 16px;
+            background: rgba(15, 17, 23, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 8px 14px;
+            flex: 1;
+            max-width: 380px;
+        }
+
+        .search-bar i {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .search-bar input {
+            background: none;
+            border: none;
+            outline: none;
+            color: var(--text);
+            font-size: 14px;
+            width: 100%;
+        }
+
+        .search-bar input::placeholder {
+            color: var(--muted);
+        }
+
+        .topbar-right {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .icon-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            display: grid;
+            place-items: center;
+            color: var(--muted);
+            cursor: pointer;
+            position: relative;
+            transition: background var(--transition), color var(--transition);
+        }
+
+        .icon-btn:hover {
+            background: var(--surface2);
+            color: var(--text);
+        }
+
+        .icon-btn .dot {
+            position: absolute;
+            top: 7px;
+            right: 7px;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--danger);
+            border: 2px solid var(--bg);
+        }
+
+        .divider-v {
+            width: 1px;
+            height: 26px;
+            background: var(--border);
+            margin: 0 4px;
+        }
+
+        .user-pill {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 5px 12px 5px 6px;
+            cursor: pointer;
+            transition: background var(--transition);
+        }
+
+        .user-pill:hover {
+            background: var(--surface2);
+        }
+
+        .user-pill .name {
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .user-pill .role {
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        /* ── PAGE ── */
+        .page {
+            padding: 28px;
+            flex: 1;
+        }
+
+        .page-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .page-title {
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .page-sub {
+            font-size: 13px;
+            color: var(--muted);
+            margin-top: 3px;
+        }
+
+        .btn-primary {
+            padding: 9px 18px;
+            background: var(--gradient);
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: opacity var(--transition), transform var(--transition);
+        }
+
+        .btn-primary:hover {
+            opacity: .88;
+            transform: translateY(-1px);
+        }
+
+        /* ── STAT CARDS ── */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .stat-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 22px;
+            transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, .35);
+            border-color: rgba(108, 99, 255, .3);
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 95px;
+            height: 95px;
+            border-radius: 50%;
+            opacity: .07;
+            transform: translate(25px, -25px);
+        }
+
+        .stat-card.purple::before {
+            background: #6c63ff;
+        }
+
+        .stat-card.teal::before {
+            background: #00d4aa;
+        }
+
+        .stat-card.orange::before {
+            background: #ffb347;
+        }
+
+        .stat-card.red::before {
+            background: #ff5c7c;
+        }
+
+        .stat-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 11px;
+            display: grid;
+            place-items: center;
+            font-size: 17px;
+            margin-bottom: 16px;
+        }
+
+        .stat-card.purple .stat-icon {
+            background: var(--primary-soft);
+            color: var(--primary);
+        }
+
+        .stat-card.teal .stat-icon {
+            background: var(--accent-soft);
+            color: var(--accent);
+        }
+
+        .stat-card.orange .stat-icon {
+            background: rgba(255, 179, 71, .15);
+            color: var(--warning);
+        }
+
+        .stat-card.red .stat-icon {
+            background: rgba(255, 92, 124, .13);
+            color: var(--danger);
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--muted);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 700;
+            margin: 6px 0 10px;
+        }
+
+        .stat-trend {
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .trend-up {
+            color: var(--accent);
+        }
+
+        .trend-down {
+            color: var(--danger);
+        }
+
+        /* ── BOTTOM GRID ── */
+        .bottom-grid {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 18px;
+        }
+
+        @media(max-width:1100px) {
+            .bottom-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ── CHART CARD ── */
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 22px;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .card-title {
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 4px;
+        }
+
+        .tab {
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--muted);
+            transition: background var(--transition), color var(--transition);
+        }
+
+        .tab.active,
+        .tab:hover {
+            background: var(--primary-soft);
+            color: var(--primary);
+        }
+
+        /* Bar Chart */
+        .bar-chart {
+            display: flex;
+            align-items: flex-end;
+            gap: 10px;
+            height: 160px;
+            padding-top: 10px;
+        }
+
+        .bar-col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .bar {
+            width: 100%;
+            border-radius: 6px 6px 0 0;
+            background: var(--primary-soft);
+            transition: background var(--transition), transform var(--transition);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .bar.highlight {
+            background: var(--gradient);
+        }
+
+        .bar:hover {
+            background: var(--gradient);
+            transform: scaleY(1.04);
+            transform-origin: bottom;
+        }
+
+        .bar-label {
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        /* ── ACTIVITY ── */
+        .activity-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            transition: background var(--transition);
+        }
+
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+
+        .act-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: grid;
+            place-items: center;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .act-icon.purple {
+            background: var(--primary-soft);
+            color: var(--primary);
+        }
+
+        .act-icon.teal {
+            background: var(--accent-soft);
+            color: var(--accent);
+        }
+
+        .act-icon.orange {
+            background: rgba(255, 179, 71, .15);
+            color: var(--warning);
+        }
+
+        .act-icon.red {
+            background: rgba(255, 92, 124, .13);
+            color: var(--danger);
+        }
+
+        .act-text .act-title {
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .act-text .act-sub {
+            font-size: 11px;
+            color: var(--muted);
+            margin-top: 2px;
+        }
+
+        .act-amount {
+            margin-left: auto;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .act-amount.pos {
+            color: var(--accent);
+        }
+
+        .act-amount.neg {
+            color: var(--danger);
+        }
+
+        /* ── TABLE ── */
+        .table-wrap {
+            overflow-x: auto;
+            margin-top: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        th {
+            padding: 10px 14px;
+            text-align: left;
+            color: var(--muted);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            font-weight: 600;
+            border-bottom: 1px solid var(--border);
+        }
+
+        td {
+            padding: 13px 14px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr {
+            transition: background var(--transition);
+        }
+
+        tbody tr:hover {
+            background: var(--surface2);
+        }
+
+        .status-badge {
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .status-badge.active {
+            background: var(--accent-soft);
+            color: var(--accent);
+        }
+
+        .status-badge.pending {
+            background: rgba(255, 179, 71, .15);
+            color: var(--warning);
+        }
+
+        .status-badge.inactive {
+            background: rgba(255, 92, 124, .13);
+            color: var(--danger);
+        }
+
+        .avatar-xs {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: inline-grid;
+            place-items: center;
+            font-size: 11px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .user-cell {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media(max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .search-bar {
+                max-width: 200px;
+            }
+
+            .page {
+                padding: 16px;
+            }
+        }
+
+        @media(max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .search-bar {
+                display: none;
+            }
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .55);
+            z-index: 99;
+        }
+
+        .overlay.show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Overlay for mobile -->
+    <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+    <!-- ───── SIDEBAR ───── -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-logo">
+            <div class="logo-icon"><i class="fa-solid fa-bolt"></i></div>
+            <span class="logo-text">NexaOS</span>
+            <span class="logo-badge">PRO</span>
+        </div>
+
+        <nav class="sidebar-nav">
+            <div class="nav-label">Main</div>
+            <a href="#" class="nav-item active"><i class="fa-solid fa-gauge-high"></i> Overview</a>
+            <a href="#" class="nav-item"><i class="fa-solid fa-chart-line"></i> Analytics</a>
+            <a href="#" class="nav-item"><i class="fa-solid fa-wallet"></i> Payments <span class="badge">3</span></a>
+            <a href="#" class="nav-item"><i class="fa-solid fa-users"></i> Customers</a>
+
+            <div class="nav-label">Tools</div>
+            <a href="#" class="nav-item"><i class="fa-solid fa-box-archive"></i> Products</a>
+            <a href="#" class="nav-item"><i class="fa-solid fa-calendar-days"></i> Schedule</a>
+            <a href="#" class="nav-item"><i class="fa-solid fa-file-lines"></i> Reports</a>
+
+            <div class="nav-label">Account</div>
+            <a href="#" class="nav-item"><i class="fa-solid fa-gear"></i> Settings</a>
+            <a href="index.html" class="nav-item"><i class="fa-solid fa-arrow-left"></i> Portfolio</a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="avatar-sm">W</div>
+            <div class="user-info">
+                <div class="name">Wassim S.</div>
+                <div class="role">Admin</div>
+            </div>
+            <i class="fa-solid fa-ellipsis-vertical settings-btn"></i>
+        </div>
+    </aside>
+
+    <!-- ───── MAIN ───── -->
+    <div class="main-content">
+
+        <!-- TOP BAR -->
+        <header class="topbar">
+            <button class="menu-toggle" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></button>
+
+            <div class="search-bar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search anything…">
+            </div>
+
+            <div class="topbar-right">
+                <div class="icon-btn"><i class="fa-regular fa-bell"></i>
+                    <div class="dot"></div>
+                </div>
+                <div class="icon-btn"><i class="fa-regular fa-envelope"></i></div>
+                <div class="divider-v"></div>
+                <div class="user-pill">
+                    <div class="avatar-sm" style="width:30px;height:30px;font-size:12px;">W</div>
+                    <div>
+                        <div class="name">Wassim</div>
+                        <div class="role">Admin</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- PAGE CONTENT -->
+        <main class="page">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Dashboard Overview</h1>
+                    <p class="page-sub">Monday, 2 March 2026 — Welcome back, Wassim 👋</p>
+                </div>
+                <button class="btn-primary"><i class="fa-solid fa-plus"></i> New Report</button>
+            </div>
+
+            <!-- STAT CARDS -->
+            <div class="stats-grid">
+                <div class="stat-card purple">
+                    <div class="stat-icon"><i class="fa-solid fa-dollar-sign"></i></div>
+                    <div class="stat-label">Total Revenue</div>
+                    <div class="stat-value">$84,230</div>
+                    <div class="stat-trend trend-up"><i class="fa-solid fa-arrow-trend-up"></i> +12.4% from last month
+                    </div>
+                </div>
+                <div class="stat-card teal">
+                    <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+                    <div class="stat-label">Active Users</div>
+                    <div class="stat-value">3,892</div>
+                    <div class="stat-trend trend-up"><i class="fa-solid fa-arrow-trend-up"></i> +8.1% from last week
+                    </div>
+                </div>
+                <div class="stat-card orange">
+                    <div class="stat-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+                    <div class="stat-label">New Orders</div>
+                    <div class="stat-value">1,247</div>
+                    <div class="stat-trend trend-down"><i class="fa-solid fa-arrow-trend-down"></i> −3.2% from yesterday
+                    </div>
+                </div>
+                <div class="stat-card red">
+                    <div class="stat-icon"><i class="fa-solid fa-ticket"></i></div>
+                    <div class="stat-label">Open Tickets</div>
+                    <div class="stat-value">38</div>
+                    <div class="stat-trend trend-up"><i class="fa-solid fa-arrow-trend-up"></i> +2 since yesterday</div>
+                </div>
+            </div>
+
+            <!-- BOTTOM GRID -->
+            <div class="bottom-grid">
+
+                <!-- Chart + Table -->
+                <div style="display:flex;flex-direction:column;gap:18px;">
+
+                    <!-- BAR CHART -->
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-title">Revenue Overview</span>
+                            <div class="tabs">
+                                <div class="tab active" onclick="setTab(this)">Week</div>
+                                <div class="tab" onclick="setTab(this)">Month</div>
+                                <div class="tab" onclick="setTab(this)">Year</div>
+                            </div>
+                        </div>
+                        <div class="bar-chart" id="barChart"></div>
+                        <div style="display:flex;gap:16px;margin-top:16px;">
+                            <span style="font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px;">
+                                <span
+                                    style="width:10px;height:10px;border-radius:3px;background:var(--gradient);display:inline-block;"></span>Revenue
+                            </span>
+                            <span style="font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px;">
+                                <span
+                                    style="width:10px;height:10px;border-radius:3px;background:var(--accent-soft);display:inline-block;"></span>Target
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- TABLE -->
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-title">Recent Customers</span>
+                            <a href="#"
+                                style="font-size:12px;color:var(--primary);font-weight:600;text-decoration:none;">View
+                                all →</a>
+                        </div>
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Customer</th>
+                                        <th>Plan</th>
+                                        <th>Revenue</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tableBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ACTIVITY -->
+                <div class="card" style="height:fit-content;">
+                    <div class="card-header">
+                        <span class="card-title">Recent Activity</span>
+                        <a href="#"
+                            style="font-size:12px;color:var(--primary);font-weight:600;text-decoration:none;">See
+                            all</a>
+                    </div>
+                    <div class="activity-list" id="activityList"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // ── Sidebar toggle (mobile)
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('open');
+            document.getElementById('overlay').classList.toggle('show');
+        }
+
+        // ── Tab switcher
+        function setTab(el) {
+            el.closest('.tabs').querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            el.classList.add('active');
+            renderChart();
+        }
+
+        // ── Bar Chart
+        const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+        function renderChart() {
+            const data = days.map(() => Math.floor(Math.random() * 75) + 25);
+            const max = Math.max(...data);
+            const chart = document.getElementById('barChart');
+            chart.innerHTML = data.map((v, i) => `
+      <div class="bar-col">
+        <div class="bar ${v === max ? 'highlight' : ''}"
+             style="height:${(v / 100) * 145}px"
+             title="$${v}K"></div>
+        <span class="bar-label">${days[i]}</span>
+      </div>`).join('');
+        }
+        renderChart();
+
+        // ── Table data
+        const customers = [
+            { name: 'Alice Martin', init: 'A', color: '#6c63ff', plan: 'Enterprise', rev: '$4,200', status: 'active' },
+            { name: 'James Lee', init: 'J', color: '#00d4aa', plan: 'Pro', rev: '$1,800', status: 'active' },
+            { name: 'Fatima Nour', init: 'F', color: '#ffb347', plan: 'Starter', rev: '$540', status: 'pending' },
+            { name: 'Carlos Rivera', init: 'C', color: '#a78bfa', plan: 'Pro', rev: '$2,100', status: 'active' },
+            { name: 'Priya Sharma', init: 'P', color: '#ff5c7c', plan: 'Starter', rev: '$320', status: 'inactive' },
+        ];
+        document.getElementById('tableBody').innerHTML = customers.map(c => `
+    <tr>
+      <td><div class="user-cell">
+        <span class="avatar-xs" style="background:${c.color}">${c.init}</span> ${c.name}
+      </div></td>
+      <td style="color:var(--muted)">${c.plan}</td>
+      <td style="font-weight:600">${c.rev}</td>
+      <td><span class="status-badge ${c.status}">${c.status.charAt(0).toUpperCase() + c.status.slice(1)}</span></td>
+    </tr>`).join('');
+
+        // ── Activity feed
+        const activities = [
+            { icon: 'fa-credit-card', cls: 'purple', title: 'Payment received', sub: 'From Alice Martin', amount: '+$4,200', pos: true },
+            { icon: 'fa-user-plus', cls: 'teal', title: 'New user signed up', sub: 'James Lee joined', amount: '', pos: true },
+            { icon: 'fa-triangle-exclamation', cls: 'orange', title: 'Low stock alert', sub: 'Product #A-302', amount: '', pos: false },
+            { icon: 'fa-file-circle-check', cls: 'teal', title: 'Report generated', sub: 'Monthly summary', amount: '', pos: true },
+            { icon: 'fa-xmark-circle', cls: 'red', title: 'Refund processed', sub: 'Order #8821', amount: '-$320', pos: false },
+            { icon: 'fa-comment', cls: 'purple', title: 'New ticket opened', sub: 'Ticket #TK-204', amount: '', pos: true },
+        ];
+        document.getElementById('activityList').innerHTML = activities.map(a => `
+    <div class="activity-item">
+      <div class="act-icon ${a.cls}"><i class="fa-solid ${a.icon}"></i></div>
+      <div class="act-text">
+        <div class="act-title">${a.title}</div>
+        <div class="act-sub">${a.sub}</div>
+      </div>
+      ${a.amount ? `<span class="act-amount ${a.pos ? 'pos' : 'neg'}">${a.amount}</span>` : ''}
+    </div>`).join('');
+
+        // Nav item active state
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', function (e) {
+                if (this.getAttribute('href') === '#') {
+                    e.preventDefault();
+                    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+                    this.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

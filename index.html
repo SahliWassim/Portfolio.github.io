@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wassim Sahli — Software Engineer</title>
+    <meta name="description"
+        content="Portfolio of Wassim Sahli – Full Stack Developer specializing in Flutter, Web, Python & Java.">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ─── CURSOR GLOW ─── -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- ─── NAV ─── -->
+    <nav class="nav" id="navbar">
+        <a href="#" class="nav-logo">WS<span class="dot">.</span></a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#stack">Stack</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="nav-toggle" id="navToggle" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+    </nav>
+
+    <!-- ─── HERO ─── -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <div class="orb orb1"></div>
+            <div class="orb orb2"></div>
+            <div class="orb orb3"></div>
+            <div class="grid-lines"></div>
+        </div>
+        <div class="hero-content">
+            <p class="hero-tag"><span class="tag-dot"></span> Available for work</p>
+            <h1 class="hero-title">
+                <span class="line" id="line1">Hi, I'm <span class="gradient-text">Wassim</span></span>
+                <span class="line" id="line2">Full Stack</span>
+                <span class="line" id="line3">Developer<span class="cursor-blink">_</span></span>
+            </h1>
+            <p class="hero-sub">Building scalable software — from mobile apps to data pipelines.<br>Turning ideas into
+                polished, production-ready products.</p>
+            <div class="hero-btns">
+                <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-rocket"></i> View Projects</a>
+                <a href="#contact" class="btn btn-ghost">Let's Talk <i class="fa-solid fa-arrow-down-right"></i></a>
+            </div>
+            <div class="hero-socials">
+                <a href="https://www.linkedin.com/in/wassim-sahli-7a6bb4244/" target="_blank" aria-label="LinkedIn"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="mailto:sahli.wassim.pro@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                <a href="tel:+213796300527" aria-label="Phone"><i class="fas fa-phone"></i></a>
+            </div>
+        </div>
+        <div class="hero-card-float">
+            <div class="float-card glass">
+                <i class="fa-solid fa-code"></i>
+                <span>20+ Projects</span>
+            </div>
+            <div class="float-card glass" style="animation-delay:.4s">
+                <i class="fa-solid fa-star"></i>
+                <span>3+ Years Exp</span>
+            </div>
+            <div class="float-card glass" style="animation-delay:.8s">
+                <i class="fa-solid fa-bolt"></i>
+                <span>Fast Delivery</span>
+            </div>
+        </div>
+        <a href="#about" class="scroll-hint"><i class="fa-solid fa-chevron-down"></i></a>
+    </section>
+
+    <!-- ─── ABOUT ─── -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text" data-aos="fade-right">
+                    <p class="section-eyebrow">About me</p>
+                    <h2 class="section-title">Passionate about <span class="gradient-text">building</span> great
+                        software</h2>
+                    <p class="about-desc">Holder of a Master’s degree in Software Engineering, I have gained diverse
+                        experience in the IT field. I first worked at SIG Service as an Odoo Support Specialist, where
+                        I developed strong expertise in managing and customizing the
+                        Odoo ERP solution. Later, as IT Manager at EFTG, I led a team of two developers
+                        and one technician, overseeing IT projects and optimizing internal processes
+                        to ensure maximum efficiency. My career demonstrates proven skills in team
+                        management, technical support, and software development</p>
+                    <div class="about-stats">
+                        <div class="astat"><span class="astat-num">3+</span><span class="astat-label">Years
+                                coding</span></div>
+                        <div class="astat"><span class="astat-num">10+</span><span class="astat-label">Projects
+                                shipped</span></div>
+                        <div class="astat"><span class="astat-num">4</span><span class="astat-label">Companies
+                                worked</span></div>
+                    </div>
+                </div>
+                <div class="about-card-wrap" data-aos="fade-left">
+                    <div class="about-card glass">
+                        <div class="about-avatar">W</div>
+                        <div>
+                            <p class="about-name">Wassim Sahli</p>
+                            <p class="about-role">Full Stack Developer</p>
+                        </div>
+                        <ul class="about-list">
+                            <li><i class="fa-solid fa-location-dot"></i> Algeria</li>
+                            <li><i class="fa-solid fa-briefcase"></i> IT Manager @ EFTG</li>
+                            <li><i class="fa-solid fa-graduation-cap"></i> Computer Science</li>
+                            <li><i class="fa-solid fa-language"></i> Arabic, French, English</li>
+                        </ul>
+                        <a href="mailto:sahli.wassim.pro@gmail.com" class="btn btn-primary"
+                            style="width:100%;justify-content:center;margin-top:8px;">
+                            <i class="fas fa-envelope"></i> Hire Me
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── TECH STACK ─── -->
+    <section class="section section-alt" id="stack">
+        <div class="container">
+            <p class="section-eyebrow" data-aos="fade-up">Tech Stack</p>
+            <h2 class="section-title" data-aos="fade-up" data-aos-delay="80">My <span
+                    class="gradient-text">Toolbox</span></h2>
+            <div class="stack-grid">
+                <!-- Row: Languages -->
+                <div class="stack-group" data-aos="fade-up" data-aos-delay="100">
+                    <p class="stack-group-label">Languages</p>
+                    <div class="stack-pills">
+                        <div class="pill glass"><i class="fab fa-python" style="color:#3776ab"></i> Python</div>
+                        <div class="pill glass"><i class="fab fa-java" style="color:#f89820"></i> Java</div>
+                        <div class="pill glass"><i class="fab fa-html5" style="color:#e34f26"></i> HTML5</div>
+                        <div class="pill glass"><i class="fab fa-css3-alt" style="color:#264de4"></i> CSS3</div>
+                        <div class="pill glass"><i class="fab fa-js" style="color:#f7df1e"></i> JavaScript</div>
+                        <div class="pill glass"><i class="fa-solid fa-code" style="color:#54c5f8"></i> Dart</div>
+                        <div class="pill glass"><i class="fa-solid fa-code" style="color:#54c5f8"></i> SQL</div>
+
+                    </div>
+                </div>
+                <!-- Row: Frameworks -->
+                <div class="stack-group" data-aos="fade-up" data-aos-delay="180">
+                    <p class="stack-group-label">Frameworks & Tools</p>
+                    <div class="stack-pills">
+                        <div class="pill glass"><i class="fa-solid fa-mobile-screen" style="color:#54c5f8"></i> Flutter
+                        </div>
+                        <div class="pill glass"><i class="fa-solid fa-fire" style="color:#ffca28"></i> Firebase</div>
+                        <div class="pill glass"><i class="fa-solid fa-database" style="color:#00758f"></i> MySQL</div>
+                        <div class="pill glass"><i class="fa-brands fa-git-alt" style="color:#f05032"></i> Git</div>
+                        <div class="pill glass"><i class="fa-brands fa-figma" style="color:#a259ff"></i> Figma</div>
+                        <div class="pill glass"><i class="fa-solid fa-chart-bar" style="color:#e77c25"></i> Pandas</div>
+                        <div class="pill glass"><i class="fa-brands fa-react" style="color:#e77c25"></i> React js</div>
+                        <div class="pill glass"><i class="fa-brands fa-node-js" style="color:#e70c25"></i> Nodejs</div>
+                        <div class="pill glass"><i class="fa-brands fa-postgresql"
+                                style="color:#082171a2"></i>PostgreSQL</div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── PROJECTS ─── -->
+    <section class="section" id="projects">
+        <div class="container">
+            <p class="section-eyebrow" data-aos="fade-up">Featured Work</p>
+            <h2 class="section-title" data-aos="fade-up" data-aos-delay="80">Selected <span
+                    class="gradient-text">Projects</span></h2>
+            <div class="projects-grid">
+
+                <div class="project-card glass" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-img-wrap">
+                        <div class="project-img-placeholder"
+                            style="background:linear-gradient(135deg,#0f2027 0%,#203a43 50%,#2c5364 100%)">
+                            <i class="fa-solid fa-leaf" style="font-size:52px;color:rgba(72,187,120,.9)"></i>
+                            <span>Mobile App</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <span class="tag">Flutter</span>
+                            <span class="tag">Firebase</span>
+                            <span class="tag">IoT</span>
+                        </div>
+                        <h3 class="project-title">Greenhouse Monitoring App</h3>
+                        <p class="project-desc">
+                            Final year project — a Flutter mobile app for real-time greenhouse monitoring
+                            and automation, connected to sensors via Firebase.
+                        </p>
+                        <div class="project-links">
+                            <a href="#" class="plink">
+                                <i class="fa-brands fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="project-card glass" data-aos="fade-up" data-aos-delay="180">
+                    <div class="project-img-wrap">
+                        <div class="project-img-placeholder"
+                            style="background:linear-gradient(135deg,#1e3c72 0%,#2a5298 100%)">
+                            <i class="fa-solid fa-chart-line" style="font-size:52px;color:rgba(99,102,241,.9)"></i>
+                            <span>Web Dashboard</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <span class="tag">Web</span>
+                            <span class="tag">IoT</span>
+                            <span class="tag">Dashboard</span>
+                        </div>
+                        <h3 class="project-title">Greenhouse Web Platform</h3>
+                        <p class="project-desc">
+                            Companion web dashboard for the greenhouse system — displays live sensor
+                            data, controls irrigation schedules and generates reports.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="project-card glass" data-aos="fade-up" data-aos-delay="260">
+                    <div class="project-img-wrap">
+                        <div class="project-img-placeholder"
+                            style="background:linear-gradient(135deg,#0d1a2e 0%,#0a2040 50%,#0d2a1a 100%)">
+                            <i class="fa-solid fa-plane" style="font-size:52px;color:rgba(0,212,170,.8)"></i>
+                            <span>Pilot Dispatch</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-tags"><span class="tag">Python</span><span class="tag">OR</span><span
+                                class="tag">Freelance</span></div>
+                        <h3 class="project-title">Pilot Dispatch — Air Algérie</h3>
+                        <p class="project-desc">Freelance operations research app for Air Algérie — optimises pilot
+                            scheduling using mathematical models built in Python.</p>
+
+                    </div>
+                </div>
+
+                <div class="project-card glass" data-aos="fade-up" data-aos-delay="340">
+                    <div class="project-img-wrap">
+                        <div class="project-img-placeholder">
+                            <i class="fa-solid fa-school" style="font-size:52px;color:rgba(108,99,255,.8)"></i>
+                            <span>School Management</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-tags"><span class="tag">Java</span><span class="tag">Desktop</span><span
+                                class="tag">MySQL</span></div>
+                        <h3 class="project-title">School Management System</h3>
+                        <p class="project-desc">Desktop application for faculty staff to manage student records, grades,
+                            and attendance with a MySQL backend.</p>
+                    </div>
+                </div>
+
+                <div class="project-card glass" data-aos="fade-up" data-aos-delay="420">
+                    <div class="project-img-wrap">
+                        <div class="project-img-placeholder"
+                            style="background:linear-gradient(135deg,#0a1628 0%,#1a0d2e 50%,#0d1a28 100%)">
+                            <i class="fa-solid fa-building-columns"
+                                style="font-size:52px;color:rgba(108,99,255,.85)"></i>
+                            <span>ERP System</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <span class="tag">React.js</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">PostgreSQL</span>
+                            <span class="tag">EFTG</span>
+                        </div>
+                        <h3 class="project-title">ERP — EFTG</h3>
+                        <p class="project-desc">Full-stack Enterprise Resource Planning system built for EFTG. Covers
+                            HR, inventory, finance and operations management — powered by a React.js frontend, Node.js
+                            REST API and a PostgreSQL database.</p>
+
+                    </div>
+                </div>
+                <div class="project-card glass" data-aos="fade-up" data-aos-delay="480">
+                    <div class="project-img-wrap">
+                        <div class="project-img-placeholder"
+                            style="background:linear-gradient(135deg,#081a1f 0%,#102c3a 50%,#0b1e26 100%)">
+                            <i class="fa-solid fa-database" style="font-size:52px;color:rgba(0,255,200,.85)"></i>
+                            <span>National Database</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <span class="tag">GaussDB</span>
+                            <span class="tag">Oracle</span>
+                            <span class="tag">Linux</span>
+                            <span class="tag">Data Engineering</span>
+                        </div>
+                        <h3 class="project-title">Algerian National Database — HCN</h3>
+                        <p class="project-desc">
+                            Large-scale national database infrastructure project developed under Huawei HCN.
+                            Responsible for database optimization, performance tuning, replication management,
+                            data integrity, and high-availability architecture. Managed millions of records
+                            ensuring security, reliability, and 24/7 system stability across enterprise and
+                            government platforms.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── EXPERIENCE TIMELINE ─── -->
+    <section class="section section-alt" id="experience">
+        <div class="container">
+            <p class="section-eyebrow" data-aos="fade-up">Career</p>
+            <h2 class="section-title" data-aos="fade-up" data-aos-delay="80">Work <span
+                    class="gradient-text">Experience</span></h2>
+            <div class="timeline">
+
+                <div class="tl-item" data-aos="fade-right" data-aos-delay="100">
+                    <div class="tl-marker"></div>
+                    <div class="tl-card glass">
+                        <div class="tl-header">
+                            <img src="./images/eftg.png" alt="EFTG" class="tl-logo">
+                            <div>
+                                <h3 class="tl-role">IT Manager</h3>
+                                <p class="tl-company">EFTG</p>
+                            </div>
+                            <span class="tl-date">Oct 2023 — Present</span>
+                        </div>
+                        <p class="tl-desc">Managing IT infrastructure, overseeing system administration, and leading
+                            digital transformation initiatives across the organisation.</p>
+                        <div class="tl-tags"><span class="tag">IT Management</span><span
+                                class="tag">Networking</span><span class="tag">Systems</span></div>
+                    </div>
+                </div>
+
+                <div class="tl-item" data-aos="fade-right" data-aos-delay="200">
+                    <div class="tl-marker"></div>
+                    <div class="tl-card glass">
+                        <div class="tl-header">
+                            <img src="./images/sig_service_logo.jpg" alt="SIG Service" class="tl-logo">
+                            <div>
+                                <h3 class="tl-role">Support Specialist</h3>
+                                <p class="tl-company">SIG Service</p>
+                            </div>
+                            <span class="tl-date">Sep — Oct 2023</span>
+                        </div>
+                        <p class="tl-desc">Provided technical support and resolved client issues across hardware and
+                            software environments.</p>
+                        <div class="tl-tags"><span class="tag">Tech Support</span><span class="tag">Client
+                                Relations</span></div>
+                    </div>
+                </div>
+
+                <div class="tl-item" data-aos="fade-right" data-aos-delay="300">
+                    <div class="tl-marker"></div>
+                    <div class="tl-card glass">
+                        <div class="tl-header">
+                            <img src="./images/sonatrach6944.logowik.com.webp" alt="Sonatrach" class="tl-logo">
+                            <div>
+                                <h3 class="tl-role">Development Intern</h3>
+                                <p class="tl-company">Sonatrach</p>
+                            </div>
+                            <span class="tl-date">2020 — 2021</span>
+                        </div>
+                        <p class="tl-desc">Contributed to internal software development projects at Algeria's largest
+                            energy company, gaining hands-on engineering experience.</p>
+                        <div class="tl-tags"><span class="tag">Internship</span><span class="tag">Software Dev</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="tl-item" data-aos="fade-right" data-aos-delay="300">
+                    <div class="tl-marker"></div>
+                    <div class="tl-card glass">
+                        <div class="tl-header">
+                            <img src="./images/huawei.png" alt="Huawei logo" class="tl-logo">
+                            <div>
+                                <h3 class="tl-role">Database Administrator</h3>
+                                <p class="tl-company">Huawei partner</p>
+                            </div>
+                            <span class="tl-date">July 2025 — Now</span>
+                        </div>
+                        <p class="tl-desc">Designing, optimizing, securing, and maintaining large-scale critical
+                            databases that store national data.</p>
+                        <div class="tl-tags"><span class="tag">Full time</span><span class="tag">Software Dev</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- ─── CONTACT ─── -->
+    <section class="section section-alt" id="contact">
+        <div class="container">
+            <p class="section-eyebrow" data-aos="fade-up">Get in touch</p>
+            <h2 class="section-title" data-aos="fade-up" data-aos-delay="80">Let's <span class="gradient-text">Work
+                    Together</span></h2>
+            <div class="contact-grid">
+                <div class="contact-info" data-aos="fade-right">
+                    <p class="contact-sub">Have a project in mind? I'm available for freelance work and full-time
+                        opportunities. Let's build something amazing.</p>
+                    <div class="contact-items">
+                        <a href="mailto:sahli.wassim.pro@gmail.com" class="contact-item glass">
+                            <div class="ci-icon"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <p class="ci-label">Email</p>
+                                <p class="ci-val">sahli.wassim.pro@gmail.com</p>
+                            </div>
+                        </a>
+                        <a href="tel:+213796300527" class="contact-item glass">
+                            <div class="ci-icon"><i class="fas fa-phone"></i></div>
+                            <div>
+                                <p class="ci-label">Phone</p>
+                                <p class="ci-val">+213 553 124 179</p>
+                            </div>
+                        </a>
+                        <a href="https://www.linkedin.com/in/wassim-sahli-7a6bb4244/" target="_blank"
+                            class="contact-item glass">
+                            <div class="ci-icon"><i class="fab fa-linkedin"></i></div>
+                            <div>
+                                <p class="ci-label">LinkedIn</p>
+                                <p class="ci-val">wassim-sahli</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <form class="contact-form glass" data-aos="fade-left" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="john@company.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" placeholder="Project idea...">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
+                        <i class="fa-solid fa-paper-plane"></i> Send Message
+                    </button>
+                    <p class="form-success" id="formSuccess">✓ Message sent! I'll be in touch soon.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── FOOTER ─── -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <p class="footer-logo">WS<span class="dot">.</span></p>
+            <p class="footer-copy">© 2026 Wassim Sahli ·</p>
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/wassim-sahli-7a6bb4244/" target="_blank"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="mailto:sahli.wassim.pro@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Init AOS
+        AOS.init({ duration: 700, once: true, easing: 'ease-out-cubic' });
+
+        // Navbar scroll
+        const nav = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 60);
+        });
+
+        // Mobile nav toggle
+        document.getElementById('navToggle').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('open');
+        });
+
+        // Cursor glow
+        const glow = document.getElementById('cursorGlow');
+        document.addEventListener('mousemove', e => {
+            glow.style.left = e.clientX + 'px';
+            glow.style.top = e.clientY + 'px';
+        });
+
+        // Hero text animation
+        ['line1', 'line2', 'line3'].forEach((id, i) => {
+            const el = document.getElementById(id);
+            if (el) { el.style.animationDelay = (i * 0.25) + 's'; el.classList.add('animate-in'); }
+        });
+
+        // Counter animation
+        function animateCounters() {
+            document.querySelectorAll('.stat-num').forEach(el => {
+                const target = +el.dataset.target;
+                const step = Math.ceil(target / 60);
+                let current = 0;
+                const timer = setInterval(() => {
+                    current = Math.min(current + step, target);
+                    el.textContent = current + (target >= 100 ? '+' : '');
+                    if (current >= target) clearInterval(timer);
+                }, 25);
+            });
+        }
+        const statsObserver = new IntersectionObserver(entries => {
+            if (entries[0].isIntersecting) { animateCounters(); statsObserver.disconnect(); }
+        }, { threshold: 0.3 });
+        const statsEl = document.getElementById('stats');
+        if (statsEl) statsObserver.observe(statsEl);
+
+        // Language bars animate
+        const barObserver = new IntersectionObserver(entries => {
+            if (entries[0].isIntersecting) {
+                document.querySelectorAll('.lang-bar-fill').forEach(b => {
+                    b.style.width = b.style.getPropertyValue('--w') || getComputedStyle(b).getPropertyValue('--w');
+                });
+                barObserver.disconnect();
+            }
+        }, { threshold: 0.3 });
+        if (statsEl) barObserver.observe(statsEl);
+
+        // Contact form
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const btn = this.querySelector('button[type="submit"]');
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+            btn.disabled = true;
+            setTimeout(() => {
+                document.getElementById('formSuccess').classList.add('show');
+                btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Message';
+                btn.disabled = false;
+                this.reset();
+            }, 1500);
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                const target = document.querySelector(a.getAttribute('href'));
+                if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+                document.querySelector('.nav-links').classList.remove('open');
+            });
+        });
+    </script>
+</body>
+
+</html>
